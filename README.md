@@ -164,6 +164,21 @@ Summary:
 
 
 
+## User Feed Implementation
+
+| User Name | User Email | User Wallet Address | Commit ID | User's Feedback | Implemented |
+|----------|-----------|---------------------|-----------|------------------|-------------|
+| Rupa Das | das@example.com | GDVGCNPYED7FFJ65MAGEP2V7B4HVLJ5HXQQNQE7KSXTDDBMX3LSP2EEB | [35ccfe6](https://github.com/saxux2/Relixa/commit/35ccfe6) | Platform too bright at night | Glassmorphism + dark-friendly UI |
+| Puja Barai | puja@gmail.com | GBEUK7NAW6JIXCAOH7OUJMUKVCE44E4U2EC6LGX2JOEK6LOGZPWX23TO | [9dc0ea6](https://github.com/saxux2/Relixa/commit/9dc0ea6) | Mobile navbar not optimized | Full-width responsive navbar |
+| Priya Pal | priya@gmail.com | GCVCHO43YMPEHBDWOVKP5Y2XZWEUHCZNPIGJRZAFFFGWMNGO5UVUMCO3 | [04a6b8a](https://github.com/saxux2/Relixa/commit/04a6b8a) | UI feels static | Smooth animations & transitions |
+| Roni Dev | dev@investx.io | GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J | [638b744](https://github.com/saxux2/Relixa/commit/638b744) | State management, API chaos, wallet/session issues | Context API, service layer, utilities |
+| Akash Biswas | akash@investx.io | GADWGNTRTYMFBBMVPFT6K46NTV3QCRNZZVHEX4IXWUFWA7GMUSAB7IM6 | [1ed5f4b](https://github.com/saxux2/Relixa/commit/1ed5f4b) | Inconsistent UI & poor UX | Design system + reusable components |
+| Tanvi Mishra | tanvi@gmail.com | GBB5NZHPP5I3ENL3MIT4WEARDNPSBI7GY4CUUVWWMZVC4ZWOXU22TZEE | [680e93c](https://github.com/saxux2/Relixa/commit/680e93c) | Missing dashboards & flows | Full app pages (investor, DAO, admin) |
+| Minakshi Lora | lora@gmail.com | GB7DTSTGE3O2X2VMANRX3PDNOB2DNJXHRVTX57QN45AJCQCVVJHUEA2X | [e4688a9](https://github.com/saxux2/Relixa/commit/e4688a9) | Poor documentation | Clean README + setup docs |
+| Tonmoy Das | das@gmail.com | GBGKDZ5ARVSOC62IUFJ3VF25YWZ2YH7VQHBGUJJQWAUARZILXOW7BC6P | [0117994](https://github.com/saxux2/Relixa/commit/0117994) | Code quality issues | Removed unused code, ESLint clean |
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions from the community!
