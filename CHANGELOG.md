@@ -30,3 +30,4 @@
 - refactor: sanitize overlapping css transition flex rules
 - docs: prepare thorough developer markdown setup instructions
 - feat: cement merchant-beneficiary local transfer logic
+- chore: trim legacy deprecated stellar communication layers
