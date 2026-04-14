@@ -23,3 +23,4 @@
 - fix: sanitize wallet session teardowns during interrupts
 - feat: complete cross-endpoint backend synchronizations
 - chore: generate local real-time monitoring dashboard template
+- feat: draft glassmorphism aesthetic for monitoring layers
