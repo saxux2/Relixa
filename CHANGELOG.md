@@ -6,3 +6,4 @@
 - feat: configure advanced tailwindcss utilities
 - feat: assemble landing page interface framework
 - refactor: abstract independent ui components
+- feat: layout primary secure routing components
