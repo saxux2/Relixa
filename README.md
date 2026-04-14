@@ -74,10 +74,8 @@ graph TD
 ---
 
 ## CI/CD Pipeline
-<p align="center">
-  <!-- Reference to the user provided CI/CD Pipeline image -->
-  <img src="https://github.com/user-attachments/assets/7fea726b-a9e8-449d-b2dd-0a3f972a489a" width="100%" alt="CI/CD Pipeline Visualization"/>
-</p>
+<img width="1919" height="967" alt="Screenshot 2026-04-14 190354" src="https://github.com/user-attachments/assets/0a029275-1608-4c1d-a0c5-b4695197ac1a" />
+
 
 ---
 
