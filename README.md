@@ -10,10 +10,10 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 
 | Resource | Link | 
 |----|-----|
-| Live Demo | [Live Link](relixa.vercel.app) | 
+| Live Demo | [Live Link](https://relixa.vercel.app/) | 
 | Smart Contract | [View on StellarExpert](#) |
 | Users Data & Review | [Users Excel Sheet](https://1drv.ms/x/c/2baf627b5dfe0bd7/IQC7V_270XSkS4srEqExxFj5AQsUXFJOYaocBdqHJrAdO7c?e=Q1RKMw) |
-
+ 
 ---
 
 ## Level 5 Building Submission Checklist
