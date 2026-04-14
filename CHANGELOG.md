@@ -7,3 +7,4 @@
 - feat: assemble landing page interface framework
 - refactor: abstract independent ui components
 - feat: layout primary secure routing components
+- feat: attach Firebase identity authentication stubs
