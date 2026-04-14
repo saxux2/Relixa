@@ -150,6 +150,19 @@ Summary:
 - Advanced Stellar Token Minting Workflows
 
 ---
+## Deployed Contracts
+
+*All contracts deployed on the Stellar Testnet.*
+
+| Contract Function | Testnet Contract ID |
+|-------------------|----------------------|
+| ReliefToken Contract | CCVU3EEHQF3BPADY37SU3AG5K3LGS2O4HXVJZEJY3T6WADTUAN6NQTYY |
+| CampaignFactory Contract | CAEI5K6BGQC4IR2M2S4HZDLA2ZKAU3RSDZ3WH6D2OZAXBS7PSWJNL4SK |
+| TokenSale Contract |CAABYCCXEEKXA6Q32EFNQWEPOL3G66BRCKISJDY6V7LXS4NABBAGCG7N |
+| USDC Token Contract (Stellar Testnet) | CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA|
+| Sample Transaction Hash | [View on stellar Expert](https://stellar.expert/explorer/testnet/contract/CAABYCCXEEKXA6Q32EFNQWEPOL3G66BRCKISJDY6V7LXS4NABBAGCG7N) |
+
+
 
 ## 🤝 Contributing
 
