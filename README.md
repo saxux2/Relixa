@@ -104,10 +104,8 @@ graph TD
 ---
 
 ## Monitoring Dashboard
-<p align="center">
-  <!-- Reference to the user provided Monitoring Dashboard image -->
-  <img src="https://github.com/user-attachments/assets/ce1c7fd3-5a13-4b95-b500-902a7048f7b3" width="100%" alt="Monitoring Dashboard"/>
-</p>
+<img width="1919" height="877" alt="Screenshot 2026-04-14 151217" src="https://github.com/user-attachments/assets/c5f7c177-7907-4ee9-8c56-f2a59c05e5d1" />
+
 
 ----
 
