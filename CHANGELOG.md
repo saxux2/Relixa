@@ -18,3 +18,4 @@
 - feat: architect soroban campaign escrow distribution
 - feat: implement stellar token fractionalization boundaries
 - test: validate core soroban transaction flow pipelines
+- feat: wire frontend configurations for stellar-sdk processing
