@@ -20,3 +20,4 @@
 - test: validate core soroban transaction flow pipelines
 - feat: wire frontend configurations for stellar-sdk processing
 - feat: mount Freighter native browser wallet injections
+- fix: sanitize wallet session teardowns during interrupts
