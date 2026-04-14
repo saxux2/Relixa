@@ -33,3 +33,4 @@
 - chore: trim legacy deprecated stellar communication layers
 - refactor: streamline primary stellar service communication classes
 - feat: apply final frontend interaction polish state
+- feat: secure frontend-soroban boundary testing parameters
