@@ -25,3 +25,4 @@
 - chore: generate local real-time monitoring dashboard template
 - feat: draft glassmorphism aesthetic for monitoring layers
 - feat: integrate visual mock network kpi rendering graphs
+- feat: implement animated scrolling transaction stream
