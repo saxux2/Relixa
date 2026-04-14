@@ -17,3 +17,4 @@
 - chore: initialize rust soroban contract execution contexts
 - feat: architect soroban campaign escrow distribution
 - feat: implement stellar token fractionalization boundaries
+- test: validate core soroban transaction flow pipelines
