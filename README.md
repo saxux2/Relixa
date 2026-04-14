@@ -164,6 +164,19 @@ Summary:
 
 
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Relixa System architecture and design |
+| [TECHNICAL_DOCS.md](docs/TECHNICAL_DOCS.md) | API reference and Soroban developer guide |
+| [USER_GUIDE.md](docs/USER_GUIDE.md) | End-user documentation for Donors, Organizers, and Beneficiaries |
+| [SECURITY_CHECKLIST.md](docs/SECURITY_CHECKLIST.md) | Security audit checklist for Smart Contracts and Wallets |
+| [DATA_INDEXING.md](docs/DATA_INDEXING.md) | Dashboard data indexing approach and Horizon queries |
+| [FEEDBACK.md](docs/FEEDBACK.md) | User feedback & community updates |
+
+---
+
 ## User Feed Implementation
 
 | User Name | User Email | User Wallet Address | Commit ID | User's Feedback | Implemented |
