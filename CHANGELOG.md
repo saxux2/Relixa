@@ -29,3 +29,4 @@
 - feat: execute layout for observed native wallet statistics
 - refactor: sanitize overlapping css transition flex rules
 - docs: prepare thorough developer markdown setup instructions
+- feat: cement merchant-beneficiary local transfer logic
