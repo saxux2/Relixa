@@ -4,6 +4,8 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 
 <img width="1903" height="906" alt="Screenshot 2026-04-12 222437" src="https://github.com/user-attachments/assets/920e35b5-500e-45bb-a085-5f760765757c" />
 
+![Track](https://img.shields.io/badge/Track-Web3%20Philanthropy-blue) ![Status](https://img.shields.io/badge/Status-Live%20MVP-brightgreen) ![Network](https://img.shields.io/badge/Network-Stellar%20Testnet-green) ![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
+
 # Mobile Responsive
 
 
@@ -12,7 +14,7 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 
 
 
-![Track](https://img.shields.io/badge/Track-Web3%20Philanthropy-blue) ![Status](https://img.shields.io/badge/Status-Live%20MVP-brightgreen) ![Network](https://img.shields.io/badge/Network-Stellar%20Testnet-green) ![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
+
 
 ---
 
