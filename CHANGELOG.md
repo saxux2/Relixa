@@ -27,3 +27,4 @@
 - feat: integrate visual mock network kpi rendering graphs
 - feat: implement animated scrolling transaction stream
 - feat: execute layout for observed native wallet statistics
+- refactor: sanitize overlapping css transition flex rules
