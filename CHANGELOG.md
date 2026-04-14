@@ -22,3 +22,4 @@
 - feat: mount Freighter native browser wallet injections
 - fix: sanitize wallet session teardowns during interrupts
 - feat: complete cross-endpoint backend synchronizations
+- chore: generate local real-time monitoring dashboard template
