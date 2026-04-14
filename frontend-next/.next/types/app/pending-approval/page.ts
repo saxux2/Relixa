@@ -1,4 +1,4 @@
-// File: C:\Relixa\Relifo\frontend-next\src\app\pending-approval\page.js
+// File: C:\Relixa\frontend-next\src\app\pending-approval\page.js
 import * as entry from '../../../../src/app/pending-approval/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

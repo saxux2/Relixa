@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\Relixa",
+    "outputFileTracingRoot": "C:\\Relixa\\frontend-next",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -289,11 +289,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.js",
     "turbopack": {
-      "root": "C:\\Relixa"
+      "root": "C:\\Relixa\\frontend-next"
     }
   },
-  "appDir": "C:\\Relixa\\Relifo\\frontend-next",
-  "relativeAppDir": "Relifo\\frontend-next",
+  "appDir": "C:\\Relixa\\frontend-next",
+  "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",
     ".next\\server\\pages-manifest.json",
