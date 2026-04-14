@@ -16,3 +16,4 @@
 - refactor: clean up mobile-forward responsiveness modules
 - chore: initialize rust soroban contract execution contexts
 - feat: architect soroban campaign escrow distribution
+- feat: implement stellar token fractionalization boundaries
