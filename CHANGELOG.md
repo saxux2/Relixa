@@ -9,3 +9,4 @@
 - feat: layout primary secure routing components
 - feat: attach Firebase identity authentication stubs
 - fix: patch react navigation hard load errors
+- feat: develop admin tracking center controls
