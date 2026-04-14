@@ -28,3 +28,4 @@
 - feat: implement animated scrolling transaction stream
 - feat: execute layout for observed native wallet statistics
 - refactor: sanitize overlapping css transition flex rules
+- docs: prepare thorough developer markdown setup instructions
