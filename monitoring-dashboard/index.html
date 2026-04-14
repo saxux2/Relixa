@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relifo Monitoring Dashboard</title>
+    <meta name="description" content="Live monitoring dashboard for Relifo Stellar network activities, user growth, and wallet statuses.">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for premium look -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">R</div>
+                <h2>Relifo Monitor</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="ph ph-squares-four"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-activity"></i> Live Transactions
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-wallet"></i> Monitored Wallets
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-users"></i> User Growth
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="ph ph-gear"></i> Settings
+                </a>
+            </nav>
+            <div class="network-status">
+                <div class="status-indicator live"></div>
+                <span>Stellar Testnet: Active</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="page-title">
+                    <h1>Real-time Overview</h1>
+                    <p>Live network monitoring and activity tracking.</p>
+                </div>
+                <div class="topbar-actions">
+                    <div class="search-bar">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Search wallets, tx hashes...">
+                    </div>
+                    <button class="icon-btn"><i class="ph ph-bell"></i><span class="badge">3</span></button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=6366f1&color=fff" alt="Admin">
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Top KPI Cards -->
+                <div class="kpi-card glass">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Live Transactions (Last 24h)</span>
+                        <div class="icon-wrapper blue"><i class="ph ph-swap"></i></div>
+                    </div>
+                    <div class="kpi-value" id="tx-count">35</div>
+                    <div class="kpi-trend positive"><i class="ph ph-trend-up"></i> +12% from yesterday</div>
+                </div>
+
+                <div class="kpi-card glass">
+                    <div class="kpi-header">
+                        <span class="kpi-title">User Growth</span>
+                        <div class="icon-wrapper green"><i class="ph ph-users-three"></i></div>
+                    </div>
+                    <div class="kpi-value" id="user-count">1,248</div>
+                    <div class="kpi-trend positive"><i class="ph ph-trend-up"></i> +8.5% this week</div>
+                </div>
+
+                <div class="kpi-card glass">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Weekly Volume (XLM)</span>
+                        <div class="icon-wrapper purple"><i class="ph ph-currency-circle-dollar"></i></div>
+                    </div>
+                    <div class="kpi-value" id="vol-count">42,500</div>
+                    <div class="kpi-trend positive"><i class="ph ph-trend-up"></i> +2.1% this week</div>
+                </div>
+
+                <div class="kpi-card glass">
+                    <div class="kpi-header">
+                        <span class="kpi-title">Active Campaigns</span>
+                        <div class="icon-wrapper orange"><i class="ph ph-flag-banner"></i></div>
+                    </div>
+                    <div class="kpi-value" id="camp-count">12</div>
+                    <div class="kpi-trend neutral"><i class="ph ph-minus"></i> No change</div>
+                </div>
+
+                <!-- Live Transactions List -->
+                <div class="panel glass transactions-panel">
+                    <div class="panel-header">
+                        <h2>35 User Live Transactions <span class="live-badge">Live</span></h2>
+                        <button class="btn-secondary">View All</button>
+                    </div>
+                    <div class="transactions-list" id="live-transactions">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Charts Area: Weekly Activity & User Growth -->
+                <div class="panel glass chart-panel min-width-chart">
+                    <div class="panel-header">
+                        <h2>Weekly Activity</h2>
+                    </div>
+                    <div class="chart-container" id="weekly-chart">
+                        <!-- SVG chart generated by JS -->
+                    </div>
+                </div>
+
+                <div class="panel glass chart-panel">
+                    <div class="panel-header">
+                        <h2>Monitored Wallets</h2>
+                    </div>
+                    <div class="wallets-list" id="monitored-wallets">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Recent Activity Feed -->
+                <div class="panel glass activity-panel">
+                    <div class="panel-header">
+                        <h2>Recent Activity</h2>
+                    </div>
+                    <div class="activity-feed" id="recent-activity">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
