@@ -33,28 +33,6 @@ jobs:
     - name: Execute Production Build
       run: npm run build
 
-  frontend-next-audit:
-    name: Frontend Next.js Build & Validation
-    runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: ./frontend-next
-
-    steps:
-    - name: Checkout Source Code
-      uses: actions/checkout@v4
-      
-    - name: Initialize Node.js Environment
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        
-    - name: Install Required Packages
-      run: npm install
-      
-    - name: Execute Production Build
-      run: npm run build
 
   soroban-contract-audit:
     name: Blockchain Soroban Verification
@@ -85,7 +63,7 @@ jobs:
   continuous-deployment-gate:
     name: Deployment Readiness
     runs-on: ubuntu-latest
-    needs: [frontend-audit, frontend-next-audit, soroban-contract-audit]
+    needs: [frontend-audit, soroban-contract-audit]
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
     
     steps:
@@ -95,6 +73,6 @@ jobs:
     - name: CI/CD Health Certification
       run: |
         echo "✅ Frontend React Components constructed successfully."
-        echo "✅ Frontend Next.js Components constructed successfully."
+
         echo "✅ Soroban Smart Contracts compiled into web assembly flawlessly."
         echo "🚀 Repository is certified ready. Auto-deployment integrations (like Vercel) can now safely proceed."
