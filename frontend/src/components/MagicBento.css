@@ -19,8 +19,13 @@
   padding: 2rem;
   min-height: 250px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+}
+
+.magic-bento-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  z-index: 20;
 }
 
 .magic-bento-card--border-glow {
