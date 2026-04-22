@@ -51,12 +51,12 @@ export default function Notification({ type = 'success', message, onClose, durat
             )}
             {message.txHash && (
               <a
-                href={`https://amoy.polygonscan.com/tx/${message.txHash}`}
+                href={`https://stellar.expert/explorer/testnet/tx/${message.txHash}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-white/80 hover:text-white underline mt-2 block"
               >
-                View on PolygonScan ↗
+                View on StellarExpert ↗
               </a>
             )}
             {showReceipt && (
