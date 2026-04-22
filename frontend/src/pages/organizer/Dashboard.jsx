@@ -217,7 +217,14 @@ export default function OrganizerDashboard() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold text-white">Organizer Dashboard</h1>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
+            <button
+              onClick={loadData}
+              className="bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg border border-white/20 transition-all flex xl:hidden items-center gap-2"
+              title="Refresh Data"
+            >
+              🔄
+            </button>
             <button
               onClick={() => setShowCreateModal(true)}
               className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold"
