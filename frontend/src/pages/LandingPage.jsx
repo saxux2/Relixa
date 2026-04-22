@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
@@ -40,6 +40,39 @@ export default function LandingPage() {
   const navigate = useNavigate();
   const [showRoleSelector, setShowRoleSelector] = useState(false);
   const [checkingRole, setCheckingRole] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check once on mount
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const sections = ['hero', 'features', 'how-it-works', 'about'].map(id => document.getElementById(id));
+    sections.forEach(section => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      sections.forEach(section => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -153,7 +186,9 @@ export default function LandingPage() {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl">
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'border-b border-white/10 bg-gray-900/90 backdrop-blur-md shadow-lg shadow-black/40' : 'bg-transparent border-b border-transparent'}`}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <Link to="/" className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-green-600">
@@ -167,13 +202,22 @@ export default function LandingPage() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <button onClick={() => scrollToSection('features')} className="text-sm text-gray-400 hover:text-white">
+            <button 
+              onClick={() => scrollToSection('features')} 
+              className={`text-sm transition-colors ${activeSection === 'features' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
+            >
               Features
             </button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-sm text-gray-400 hover:text-white">
+            <button 
+              onClick={() => scrollToSection('how-it-works')} 
+              className={`text-sm transition-colors ${activeSection === 'how-it-works' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
+            >
               How It Works
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-sm text-gray-400 hover:text-white">
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className={`text-sm transition-colors ${activeSection === 'about' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
+            >
               About
             </button>
           </div>
@@ -211,7 +255,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20">
+      <section id="hero" className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20">
         <div className="relative z-10 mx-auto max-w-5xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5">
             <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
@@ -230,19 +274,19 @@ export default function LandingPage() {
             A decentralized platform for transparent disaster relief. Connect your wallet, donate USDC, and help those in need with complete transaction transparency.
           </p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
             {isConnected ? (
               <button
                 onClick={handleGoToDashboard}
                 disabled={checkingRole}
-                className="w-full rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-8 py-4 text-lg font-semibold text-white hover:from-green-600 hover:to-green-700 sm:w-auto disabled:opacity-50"
+                className="w-full rounded-xl bg-gradient-to-r from-green-400 to-emerald-500 px-10 py-5 text-xl font-bold text-white shadow-[0_0_20px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-105 hover:from-green-300 hover:to-emerald-400 hover:shadow-[0_0_40px_rgba(52,211,153,0.8)] sm:w-auto disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-[0_0_20px_rgba(52,211,153,0.4)]"
               >
                 {checkingRole ? '⏳ Checking Role...' : 'Go to Dashboard'}
               </button>
             ) : (
               <button
                 onClick={handleConnectWallet}
-                className="w-full rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-8 py-4 text-lg font-semibold text-white hover:from-green-600 hover:to-green-700 sm:w-auto"
+                className="w-full rounded-xl bg-gradient-to-r from-green-400 to-emerald-500 px-10 py-5 text-xl font-bold text-white shadow-[0_0_20px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-105 hover:from-green-300 hover:to-emerald-400 hover:shadow-[0_0_40px_rgba(52,211,153,0.8)] sm:w-auto"
               >
                 Connect Wallet
               </button>
