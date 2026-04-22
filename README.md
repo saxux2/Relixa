@@ -189,6 +189,7 @@ Summary:
 | Tanvi Mishra | tanvi@gmail.com | GBB5NZHPP5I3ENL3MIT4WEARDNPSBI7GY4CUUVWWMZVC4ZWOXU22TZEE | [f881b7d](https://github.com/saxux2/Relixa/commit/f881b7d) | "It would be great to see my total wallet statistics and balances at a glance." | Executed a layout to display observed native wallet statistics |
 | Minakshi Lora | lora@gmail.com | GB7DTSTGE3O2X2VMANRX3PDNOB2DNJXHRVTX57QN45AJCQCVVJHUEA2X | [f2607f0](https://github.com/saxux2/Relixa/commit/f2607f0) | "As an organizer, there is no separate place to manage and launch my campaigns easily." | Constructed dedicated organizer campaign launch pads for easier management |
 | Tonmoy Das | das@gmail.com | GBGKDZ5ARVSOC62IUFJ3VF25YWZ2YH7VQHBGUJJQWAUARZILXOW7BC6P | [9ccc26a](https://github.com/saxux2/Relixa/commit/9ccc26a) | "We need an administrative view to track overall platform activity and campaigns." | Developed admin tracking center controls for comprehensive platform monitoring |
+| Rahul Sharma | rahul@example.com | GDAXP4Z75N7G4NVK2L3S4P5V7VYF7W5HNYXJ7AABT4J5DZXE7M | [ef2b2b5](https://github.com/saxux2/Relixa/commit/ef2b2b5) | "The Connect Wallet button doesn't stand out and the navbar blends into the page while scrolling." | Upgraded landing page UX with an expanded glowing CTA and an interactive dynamic navbar |
 
 ---
 
