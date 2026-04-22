@@ -50,5 +50,6 @@ export const STELLAR_METHODS = {
 
   // Read methods
   GET_CAMPAIGN_INFO: 'get_campaign_info',
-  GET_BENEFICIARY_INFO: 'get_beneficiary_info'
+  GET_BENEFICIARY_INFO: 'get_beneficiary_info',
+  GET_MERCHANT_INFO: 'get_merchant_info'
 };
