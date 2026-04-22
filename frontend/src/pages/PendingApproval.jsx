@@ -55,10 +55,11 @@ export default function PendingApproval() {
               if (data.status === USER_STATUS.APPROVED) {
                 navigate(`/${data.role}/dashboard`);
               }
-              // If rejected, redirect back to register
+              // If rejected, handle visual error state before kicking
               else if (data.status === USER_STATUS.REJECTED) {
-                alert('Your application was rejected. Please contact support or try again.');
-                navigate('/register');
+                setUserData({ ...data, rejected: true });
+                setLoading(false);
+                return;
               }
             } else {
               // User doesn't exist, redirect to register
