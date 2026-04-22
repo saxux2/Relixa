@@ -43,10 +43,10 @@ BLOCKCHAIN VERIFICATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Transaction Hash: ${transactionHash}
 Block Number:     ${blockNumber || 'N/A'}
-Network:          Polygon Amoy (80002)
+Network:          Stellar Testnet
 
-Verify on PolygonScan:
-https://amoy.polygonscan.com/tx/${transactionHash}
+Verify on StellarExpert:
+https://stellar.expert/explorer/testnet/tx/${transactionHash}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
        This is a digital receipt.
@@ -139,29 +139,29 @@ https://amoy.polygonscan.com/tx/${transactionHash}
               />
               <DetailRow 
                 label="Network" 
-                value="Polygon Amoy (80002)"
+                value="Stellar Testnet"
                 small
               />
             </div>
           </div>
 
-          {/* PolygonScan Link */}
+          {/* StellarExpert Link */}
           <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-gray-700 mb-2 font-medium">Verify on Blockchain:</p>
             <a
-              href={`https://amoy.polygonscan.com/tx/${transactionHash}`}
+              href={`https://stellar.expert/explorer/testnet/tx/${transactionHash}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 text-sm break-all underline"
             >
-              https://amoy.polygonscan.com/tx/{transactionHash.substring(0, 20)}...
+              https://stellar.expert/explorer/testnet/tx/{transactionHash.substring(0, 20)}...
             </a>
           </div>
 
           {/* Footer */}
           <div className="text-center text-gray-500 text-xs border-t-2 border-dashed border-gray-300 pt-4">
             <p>This is a digital receipt. No signature required.</p>
-            <p className="mt-1">Transaction recorded on Polygon blockchain</p>
+            <p className="mt-1">Transaction recorded on Stellar blockchain</p>
           </div>
         </div>
 
