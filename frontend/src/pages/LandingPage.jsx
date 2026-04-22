@@ -225,7 +225,8 @@ export default function LandingPage() {
           <div className="flex items-center gap-4">
             {isConnected ? (
               <>
-                <span className="hidden md:inline-block text-xs text-green-400 font-mono bg-green-500/10 border border-green-500/30 px-3 py-1.5 rounded-lg">
+                <span className="hidden md:flex items-center gap-2 text-xs text-green-400 font-mono bg-green-500/10 border border-green-500/30 px-3 py-1.5 rounded-lg shadow-[0_0_10px_rgba(34,197,94,0.2)]">
+                  <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
                   {address?.slice(0, 6)}...{address?.slice(-4)}
                 </span>
                 <button
