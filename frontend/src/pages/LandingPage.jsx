@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { USER_STATUS, SUPER_ADMIN_ADDRESS } from '../firebase/constants';
 import { useStellarWallet } from '../contexts/StellarWalletContext';
 import MagicBento from '../components/MagicBento';
+import Web3Navbar from '../components/Web3Navbar';
 
 const featuresCards = [
   {
@@ -35,20 +36,27 @@ const ROLE_OPTIONS = [
   { id: 'merchant', name: 'Merchant', icon: '🏪', description: 'Provide goods & services', color: 'from-orange-500 to-amber-600' },
 ];
 
+const NAV_LINKS = [
+  { id: 'features', label: 'Features' },
+  { id: 'how-it-works', label: 'How It Works' },
+  { id: 'about', label: 'About' },
+];
+
 export default function LandingPage() {
   const { address, isConnected, connectWallet, disconnectWallet } = useStellarWallet();
   const navigate = useNavigate();
   const [showRoleSelector, setShowRoleSelector] = useState(false);
   const [checkingRole, setCheckingRole] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 28);
     };
+
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check once on mount
+    handleScroll();
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,26 +66,25 @@ export default function LandingPage() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.45 }
     );
 
-    const sections = ['hero', 'features', 'how-it-works', 'about'].map(id => document.getElementById(id));
-    sections.forEach(section => {
-      if (section) observer.observe(section);
-    });
+    const sections = ['hero', 'features', 'how-it-works', 'about']
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      sections.forEach(section => {
-        if (section) observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -87,26 +94,22 @@ export default function LandingPage() {
     setCheckingRole(true);
 
     try {
-      // Check if Super Admin
       if (SUPER_ADMIN_ADDRESS && address.toLowerCase() === SUPER_ADMIN_ADDRESS.toLowerCase()) {
         navigate('/admin/dashboard');
         return;
       }
 
-      // If Firebase is not configured, show role selector
       if (!db) {
-        console.log('⚠️ Firebase not configured — showing role selector');
+        console.log('Firebase not configured, showing role selector');
         setShowRoleSelector(true);
         setCheckingRole(false);
         return;
       }
 
-      // Check if user exists in Firestore
       const userRef = doc(db, 'users', address.toLowerCase());
       const userSnap = await getDoc(userRef);
 
       if (!userSnap.exists()) {
-        // New user — go to register or show role selector
         navigate('/register');
         return;
       }
@@ -116,12 +119,12 @@ export default function LandingPage() {
       if (userData.status === USER_STATUS.PENDING) {
         navigate('/pending-approval', { state: { user: userData } });
       } else if (userData.status === USER_STATUS.REJECTED) {
-        // Show rejection modal with options to re-apply or contact support
         const reapply = window.confirm(
           `Your ${userData.role || 'application'} application was rejected.\n\n` +
           `Reason: ${userData.rejectionReason || 'Not specified'}\n\n` +
           `Click OK to apply for a different role, or Cancel to try the role selector.`
         );
+
         if (reapply) {
           navigate('/register');
         } else {
@@ -130,13 +133,11 @@ export default function LandingPage() {
       } else if (userData.status === USER_STATUS.APPROVED) {
         navigate(`/${userData.role}/dashboard`);
       } else {
-        // Unknown status - show role selector
         console.warn('Unknown user status:', userData.status);
         setShowRoleSelector(true);
       }
     } catch (error) {
       console.error('Error checking user:', error);
-      // On any Firebase error, fallback to role selector
       setShowRoleSelector(true);
     } finally {
       setCheckingRole(false);
@@ -163,15 +164,20 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Floating Dots Overlay */}
+    <div className="relative min-h-screen w-full overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <div className="web3-grid pointer-events-none absolute inset-0 z-0 opacity-40" />
+      <div className="pointer-events-none absolute left-[-12rem] top-[-10rem] z-0 h-[28rem] w-[28rem] rounded-full bg-emerald-400/18 blur-3xl animate-web3-float" />
+      <div className="pointer-events-none absolute right-[-8rem] top-[6rem] z-0 h-[24rem] w-[24rem] rounded-full bg-cyan-400/14 blur-3xl animate-web3-float" />
+      <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 z-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-emerald-500/12 blur-3xl animate-web3-float" />
+
       <div className="pointer-events-none absolute inset-0 z-0">
         {[...Array(180)].map((_, i) => {
           const size = 2 + Math.random() * 3;
+
           return (
             <span
               key={i}
-              className="absolute rounded-full bg-green-500/30"
+              className="absolute rounded-full bg-emerald-300/30"
               style={{
                 width: size,
                 height: size,
@@ -185,93 +191,34 @@ export default function LandingPage() {
         })}
       </div>
 
-      {/* Navbar */}
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'border-b border-white/10 bg-gray-900/90 backdrop-blur-md shadow-lg shadow-black/40' : 'bg-transparent border-b border-transparent'}`}
-      >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-green-400 to-green-600">
-              <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-            </div>
-            <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-2xl font-bold text-transparent">
-              Relixa
-            </span>
-          </Link>
+      <Web3Navbar
+        isScrolled={isScrolled}
+        links={NAV_LINKS}
+        activeSection={activeSection}
+        onNavigate={scrollToSection}
+        isConnected={isConnected}
+        address={address}
+        onConnect={handleConnectWallet}
+        onDisconnect={handleDisconnectWallet}
+        onPrimaryAction={handleGoToDashboard}
+        primaryActionLabel={checkingRole ? 'Checking...' : 'Go to Dashboard'}
+        primaryActionDisabled={checkingRole}
+      />
 
-          <div className="hidden items-center gap-8 md:flex">
-            <button 
-              onClick={() => scrollToSection('features')} 
-              className={`text-sm transition-colors ${activeSection === 'features' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
-            >
-              Features
-            </button>
-            <button 
-              onClick={() => scrollToSection('how-it-works')} 
-              className={`text-sm transition-colors ${activeSection === 'how-it-works' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
-            >
-              How It Works
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')} 
-              className={`text-sm transition-colors ${activeSection === 'about' ? 'text-green-500 font-bold' : 'text-gray-400 hover:text-white'}`}
-            >
-              About
-            </button>
-          </div>
-
-          <div className="flex items-center gap-4">
-            {isConnected ? (
-              <>
-                <span className="hidden md:flex items-center gap-2 text-xs text-green-400 font-mono bg-green-500/10 border border-green-500/30 px-3 py-1.5 rounded-lg shadow-[0_0_10px_rgba(34,197,94,0.2)]">
-                  <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-                  {address?.slice(0, 6)}...{address?.slice(-4)}
-                </span>
-                <button
-                  onClick={handleDisconnectWallet}
-                  className="rounded-lg border border-white/20 px-4 py-2 text-sm text-white hover:bg-white/10"
-                >
-                  Disconnect
-                </button>
-                <button
-                  onClick={handleGoToDashboard}
-                  disabled={checkingRole}
-                  className="rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 text-sm font-semibold text-white hover:from-green-600 hover:to-green-700 disabled:opacity-50"
-                >
-                  {checkingRole ? 'Checking...' : 'Go to Dashboard'}
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handleConnectWallet}
-                className="rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-6 py-2 text-sm font-semibold text-white hover:from-green-600 hover:to-green-700"
-              >
-                Connect Wallet
-              </button>
-            )}
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20">
+      <section id="hero" className="relative flex min-h-screen flex-col items-center justify-center px-6 pb-12 pt-32 sm:pt-36">
         <div className="relative z-10 mx-auto max-w-5xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-            <span className="text-sm text-green-400">Built on Stellar Blockchain</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-4 py-1.5 shadow-[0_0_24px_rgba(16,185,129,0.12)]">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-300" />
+            <span className="text-sm text-emerald-200">Built on Stellar Blockchain</span>
           </div>
 
-          <h1 className="mb-6 text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl">
+          <h1 className="mb-6 text-5xl font-black leading-tight text-white md:text-7xl lg:text-8xl">
             Disaster Relief
             <br />
-            <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
-              Reimagined
-            </span>
+            <span className="web3-text-gradient">Reimagined</span>
           </h1>
 
-          <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-400 md:text-xl">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-slate-300/80 md:text-xl">
             A decentralized platform for transparent disaster relief. Connect your wallet, donate USDC, and help those in need with complete transaction transparency.
           </p>
 
@@ -280,43 +227,64 @@ export default function LandingPage() {
               <button
                 onClick={handleGoToDashboard}
                 disabled={checkingRole}
-                className="w-full rounded-xl bg-gradient-to-r from-green-400 to-emerald-500 px-10 py-5 text-xl font-bold text-white shadow-[0_0_20px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-105 hover:from-green-300 hover:to-emerald-400 hover:shadow-[0_0_40px_rgba(52,211,153,0.8)] sm:w-auto disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-[0_0_20px_rgba(52,211,153,0.4)]"
+                className="web3-button-primary w-full rounded-2xl px-10 py-5 text-xl font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto disabled:opacity-50 disabled:hover:scale-100"
               >
-                {checkingRole ? '⏳ Checking Role...' : 'Go to Dashboard'}
+                {checkingRole ? 'Checking Role...' : 'Go to Dashboard'}
               </button>
             ) : (
               <button
                 onClick={handleConnectWallet}
-                className="w-full rounded-xl bg-gradient-to-r from-green-400 to-emerald-500 px-10 py-5 text-xl font-bold text-white shadow-[0_0_20px_rgba(52,211,153,0.4)] transition-all duration-300 hover:scale-105 hover:from-green-300 hover:to-emerald-400 hover:shadow-[0_0_40px_rgba(52,211,153,0.8)] sm:w-auto"
+                className="web3-button-primary w-full rounded-2xl px-10 py-5 text-xl font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto"
               >
                 Connect Wallet
               </button>
             )}
-            <Link
-              to="/#how-it-works"
-              className="w-full rounded-lg border border-white/20 px-8 py-4 text-lg font-semibold text-white hover:bg-white/10 sm:w-auto"
+
+            <button
+              onClick={() => scrollToSection('how-it-works')}
+              className="w-full rounded-2xl border border-white/12 bg-white/[0.03] px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/[0.08] sm:w-auto"
             >
               Learn More
-            </Link>
+            </button>
+          </div>
+
+          <div className="mx-auto mt-14 grid max-w-4xl gap-4 text-left md:grid-cols-3">
+            {[
+              { label: 'On-chain transparency', value: 'Every transfer verifiable' },
+              { label: 'Wallet-first access', value: 'No passwords or friction' },
+              { label: 'Fast aid distribution', value: 'Built for direct delivery' },
+            ].map((item) => (
+              <div key={item.label} className="web3-panel rounded-3xl px-5 py-4">
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{item.label}</div>
+                <div className="text-sm text-slate-200">{item.value}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="relative px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-16 text-center text-4xl font-bold text-white">
-            Why <span className="text-green-500">Relixa</span>?
-          </h2>
-          <MagicBento cards={featuresCards} />
+          <div className="mb-16 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300/70">Protocol Advantages</div>
+            <h2 className="text-4xl font-bold text-white">
+              Why <span className="web3-text-gradient">Relixa</span>?
+            </h2>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.02] p-4 shadow-[0_16px_70px_rgba(3,7,18,0.28)] sm:p-6">
+            <MagicBento cards={featuresCards} />
+          </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section id="how-it-works" className="relative px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <h2 className="mb-16 text-center text-4xl font-bold text-white">How It Works</h2>
-          
+          <div className="mb-16 text-center">
+            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200/70">User Flow</div>
+            <h2 className="text-4xl font-bold text-white">How It Works</h2>
+          </div>
+
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
@@ -334,86 +302,83 @@ export default function LandingPage() {
                 title: 'Help Those in Need',
                 description: 'Your donation goes to verified campaigns and reaches affected families.',
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <div
-                key={i}
-                className="group relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:border-green-500/30"
+                key={item.step}
+                className="web3-panel group relative rounded-[2rem] p-8 transition-all hover:-translate-y-1 hover:border-emerald-400/30"
               >
-                <span className="mb-4 block text-6xl font-bold text-green-500/20">{item.step}</span>
+                <div className="mb-5 h-1 w-16 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" />
+                <span className="mb-4 block text-6xl font-bold text-emerald-400/20">{item.step}</span>
                 <h3 className="mb-3 text-xl font-semibold text-white">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <p className="text-slate-300/75">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="relative px-6 py-20">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="web3-panel mx-auto max-w-4xl rounded-[2rem] px-8 py-12 text-center sm:px-12">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-emerald-300/70">Mission</div>
           <h2 className="mb-8 text-4xl font-bold text-white">About Relixa</h2>
-          <p className="text-lg text-gray-400">
-            Relixa is a decentralized disaster relief platform built on Stellar blockchain. 
-            We enable transparent and secure fund distribution to affected communities through 
+          <p className="text-lg text-slate-300/80">
+            Relixa is a decentralized disaster relief platform built on Stellar blockchain.
+            We enable transparent and secure fund distribution to affected communities through
             smart contracts, ensuring every donation reaches those who need it most.
           </p>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative border-t border-white/10 bg-black/50 px-6 py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
+      <footer className="relative px-6 py-12">
+        <div className="web3-panel mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 rounded-[2rem] px-6 py-8 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-600">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500">
               <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
             <span className="font-semibold text-white">Relixa</span>
           </div>
-          <p className="text-sm text-gray-500">© 2026 Relixa. Built on Stellar Blockchain.</p>
+          <p className="text-sm text-slate-400">© 2026 Relixa. Built on Stellar Blockchain.</p>
         </div>
       </footer>
 
-      {/* Role Selector Modal */}
       {showRoleSelector && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="w-full max-w-3xl bg-black/95 border border-white/20 rounded-3xl p-8 shadow-2xl">
-            <div className="flex justify-between items-center mb-6">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+          <div className="web3-panel w-full max-w-3xl rounded-[2rem] p-8">
+            <div className="mb-6 flex items-center justify-between">
               <div>
                 <h2 className="text-3xl font-bold text-white">Select Your Role</h2>
-                <p className="text-white/60 text-sm mt-1">
-                  Connected: <span className="text-green-400 font-mono">{address?.slice(0, 8)}...{address?.slice(-4)}</span>
+                <p className="mt-1 text-sm text-white/60">
+                  Connected: <span className="font-mono text-emerald-300">{address?.slice(0, 8)}...{address?.slice(-4)}</span>
                 </p>
               </div>
               <button
                 onClick={() => setShowRoleSelector(false)}
-                className="text-white/40 hover:text-white text-2xl"
+                className="text-2xl text-white/40 transition hover:text-white"
               >
                 ×
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {ROLE_OPTIONS.map((role) => (
                 <button
                   key={role.id}
                   onClick={() => handleSelectRole(role.id)}
-                  className="group relative bg-white/5 border border-white/10 hover:border-green-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-white/10 hover:scale-[1.02]"
+                  className="group relative rounded-[1.5rem] border border-white/10 bg-white/5 p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:border-emerald-400/40 hover:bg-white/10"
                 >
-                  <div className="text-4xl mb-3">{role.icon}</div>
-                  <h3 className="text-lg font-bold text-white mb-1">{role.name}</h3>
-                  <p className="text-white/50 text-sm">{role.description}</p>
-                  
-                  {/* Gradient bottom bar */}
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${role.color} rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity`} />
+                  <div className="mb-3 text-4xl">{role.icon}</div>
+                  <h3 className="mb-1 text-lg font-bold text-white">{role.name}</h3>
+                  <p className="text-sm text-white/50">{role.description}</p>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 rounded-b-[1.5rem] bg-gradient-to-r ${role.color} opacity-0 transition-opacity group-hover:opacity-100`} />
                 </button>
               ))}
             </div>
 
             <div className="mt-6 text-center">
-              <p className="text-white/30 text-xs">
-                🔒 Stellar Testnet • Wallet-based authentication • No passwords required
+              <p className="text-xs text-white/30">
+                Stellar Testnet • Wallet-based authentication • No passwords required
               </p>
             </div>
           </div>
