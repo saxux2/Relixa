@@ -10,7 +10,7 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 # Mobile Responsive
 
 
-<img width="1080" height="2067" alt="image" src="https://github.com/user-attachments/assets/deb3f78d-7b7e-4950-acbe-ef5d9eab16f2" />
+<img width="330" height="580" alt="image" src="https://github.com/user-attachments/assets/deb3f78d-7b7e-4950-acbe-ef5d9eab16f2" />
 
 
 
