@@ -2,7 +2,8 @@
 
 A transparent, blockchain-powered platform for disaster relief campaigns built originally on Stellar & Soroban smart contracts. Relixa ensures that every donation reaches its intended beneficiaries securely, quickly, and transparently using XLM natively.
 
-<img width="1919" height="876" alt="Screenshot 2026-04-23 115428" src="https://github.com/user-attachments/assets/26f5ed74-4b06-4536-b5f4-2dab6207bde2" />
+<img width="1900" height="826" alt="image" src="https://github.com/user-attachments/assets/cf0d68ef-5b47-41eb-bac7-54e7aa408b32" />
+
 
 
 ![Track](https://img.shields.io/badge/Track-Web3%20Philanthropy-blue) ![Status](https://img.shields.io/badge/Status-Live%20MVP-brightgreen) ![Network](https://img.shields.io/badge/Network-Stellar%20Testnet-green) ![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
