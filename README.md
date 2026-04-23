@@ -179,6 +179,17 @@ Summary:
 | [FEEDBACK.md](docs/FEEDBACK.md) | User feedback & community updates |
 
 ---
+## User Details
+| User Name | User Email |  User Wallet Address |
+|----------|-------------|---------------------|
+| Jiya Dutta |dutta09@gmail.com |   GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O    |
+|Amit biswas | amit55@gmai.com |   GBZIRMV5YANW3WVA422NSDQXGNVWPFOKYZUWGRU7EVN5K6ZGYIVMZAPH  |
+| Shuvo Sen | shuvo542@gmail.com |  GAVTPSIF7DROXMXAEA5SNAH5IDXRCM2XGD6X7IKHKZXHRBKNXFZJQMGK    |
+|Jiten Mandal|jitu321@gmail.com |  |  GD4TLKYDKSYDVZCH3UEGTKHWVX4UZSWCOZZVXBQMMU3LSQDJQKALMJHL      |
+|Anik Das  | das22@gmail.com |  GAHLE2YB3NTEFXSEFWIPXKL7IBE4WARO64W2DUGWERAD4WJCL2UXMCVQ      |
+
+
+
 
 ## User Feed Implementation
 
