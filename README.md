@@ -182,11 +182,11 @@ Summary:
 ## User Details
 | User Name | User Email |  User Wallet Address |
 |----------|-------------|---------------------|
-| Jiya Dutta |dutta09@gmail.com |   GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O    |
-|Amit biswas | amit55@gmai.com |   GBZIRMV5YANW3WVA422NSDQXGNVWPFOKYZUWGRU7EVN5K6ZGYIVMZAPH  |
-| Shuvo Sen | shuvo542@gmail.com |  GAVTPSIF7DROXMXAEA5SNAH5IDXRCM2XGD6X7IKHKZXHRBKNXFZJQMGK    |
-|Jiten Mandal|jitu321@gmail.com |   GD4TLKYDKSYDVZCH3UEGTKHWVX4UZSWCOZZVXBQMMU3LSQDJQKALMJHL      |
-|Anik Das  | das22@gmail.com |  GAHLE2YB3NTEFXSEFWIPXKL7IBE4WARO64W2DUGWERAD4WJCL2UXMCVQ      |
+| Jiya Dutta |dutta09@gmail.com |   GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O   |
+|Amit biswas | amit55@gmai.com |  GBC6CGPG3JVSHEGO3TVMSHJ6UAVL4OA4H4TZSH4P7TRTF2V3RRFVOVHJ   |
+| Shuvo Sen | shuvo542@gmail.com |GA3QEKYH3AJUF37L5CW66QNAIGCMRUBRHPLTM74HDHA4BHCE2TYI5ZNC    |
+|Jiten Mandal|jitu321@gmail.com |GAID6F2HZ57QELA3SEJOVRA4VJU5BTJJKJZU6LQ4EJJLZAHF7P6S5XZO    |
+|Anik Das  | das22@gmail.com |  GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J     |
 
 -----
 
@@ -196,10 +196,10 @@ Summary:
 | User Name | User Email | User Wallet Address | Commit ID | User's Feedback | Implemented |
 |----------|-----------|---------------------|-----------|------------------|-------------|
 | Jiya Dutta | dutta09@gmail.com | GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O | [1d24afb](https://github.com/saxux2/Relixa/commit/1d24afb) | "The landing page looked too plain for a web3 app. Please improve the navbar and overall visual theme." | Added a reusable Web3Navbar, introduced global web3 theme styles in frontend/src/index.css, and redesigned frontend/src/pages/LandingPage.jsx. |
-| Amit biswas | amit55@gmai.com | GBZIRMV5YANW3WVA422NSDQXGNVWPFOKYZUWGRU7EVN5K6ZGYIVMZAPH | [ef2b2b5](https://github.com/saxux2/Relixa/commit/ef2b2b5) | "It wasn’t obvious what I should do first on the homepage. Please make the navigation and main buttons clearer" |Improved landing page UX with a more dynamic navbar and clearer CTA flow in frontend/src/pages/LandingPage.jsx. |
-| Shuvo Sen |shuvo542@gmail.com | GAVTPSIF7DROXMXAEA5SNAH5IDXRCM2XGD6X7IKHKZXHRBKNXFZJQMGK | [75ffc34](https://github.com/saxux2/Relixa/commit/75ffc34) |	“The feature cards felt static. It would be better if they had a more interactive hover effect.” |Added responsive hover-scale interaction to the feature cards in frontend/src/components/MagicBento.css.|
-| Jiten Mandal | jitu321@gmail.com | GD4TLKYDKSYDVZCH3UEGTKHWVX4UZSWCOZZVXBQMMU3LSQDJQKALMJHL | [b0d21b4](https://github.com/saxux2/Relixa/commit/b0d21b4) | “I wanted a clearer visual sign that my wallet was connected.” | Added/updated the wallet connection status indicator on the landing page wallet pill in frontend/src/pages/LandingPage.jsx. |
-|Anik Das  |das22@gmail.com | GAHLE2YB3NTEFXSEFWIPXKL7IBE4WARO64W2DUGWERAD4WJCL2UXMCVQ | [3e22721](https://github.com/saxux2/Relixa/commit/3e22721) |“The pending/rejected approval state was confusing. Please make it clearer what is happening.” | Improved the pending approval screen and rejection handling in frontend/src/pages/PendingApproval.jsx. |
+| Amit biswas | amit55@gmai.com |  GBC6CGPG3JVSHEGO3TVMSHJ6UAVL4OA4H4TZSH4P7TRTF2V3RRFVOVHJ | [ef2b2b5](https://github.com/saxux2/Relixa/commit/ef2b2b5) | "It wasn’t obvious what I should do first on the homepage. Please make the navigation and main buttons clearer" |Improved landing page UX with a more dynamic navbar and clearer CTA flow in frontend/src/pages/LandingPage.jsx. |
+| Shuvo Sen |shuvo542@gmail.com | GA3QEKYH3AJUF37L5CW66QNAIGCMRUBRHPLTM74HDHA4BHCE2TYI5ZNC | [75ffc34](https://github.com/saxux2/Relixa/commit/75ffc34) |	“The feature cards felt static. It would be better if they had a more interactive hover effect.” |Added responsive hover-scale interaction to the feature cards in frontend/src/components/MagicBento.css.|
+| Jiten Mandal | jitu321@gmail.com | GAID6F2HZ57QELA3SEJOVRA4VJU5BTJJKJZU6LQ4EJJLZAHF7P6S5XZO | [b0d21b4](https://github.com/saxux2/Relixa/commit/b0d21b4) | “I wanted a clearer visual sign that my wallet was connected.” | Added/updated the wallet connection status indicator on the landing page wallet pill in frontend/src/pages/LandingPage.jsx. |
+|Anik Das  |das22@gmail.com | GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J| [3e22721](https://github.com/saxux2/Relixa/commit/3e22721) |“The pending/rejected approval state was confusing. Please make it clearer what is happening.” | Improved the pending approval screen and rejection handling in frontend/src/pages/PendingApproval.jsx. |
 
 ---
 
