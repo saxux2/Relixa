@@ -117,7 +117,8 @@ graph TD
 ---
 
 ## Monitoring Dashboard
-<img width="1919" height="877" alt="Screenshot 2026-04-14 151217" src="https://github.com/user-attachments/assets/c5f7c177-7907-4ee9-8c56-f2a59c05e5d1" />
+<img width="1899" height="861" alt="Screenshot 2026-04-29 124840" src="https://github.com/user-attachments/assets/005b3048-a884-4da8-888d-2864d3c1a947" />
+
 
 
 ----
