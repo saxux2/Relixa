@@ -2,14 +2,17 @@
 
 A transparent, blockchain-powered platform for disaster relief campaigns built originally on Stellar & Soroban smart contracts. Relixa ensures that every donation reaches its intended beneficiaries securely, quickly, and transparently using XLM natively.
 
-<img width="1903" height="906" alt="Screenshot 2026-04-12 222437" src="https://github.com/user-attachments/assets/920e35b5-500e-45bb-a085-5f760765757c" />
+<img width="1900" height="826" alt="image" src="https://github.com/user-attachments/assets/cf0d68ef-5b47-41eb-bac7-54e7aa408b32" />
+
+
 
 ![Track](https://img.shields.io/badge/Track-Web3%20Philanthropy-blue) ![Status](https://img.shields.io/badge/Status-Live%20MVP-brightgreen) ![Network](https://img.shields.io/badge/Network-Stellar%20Testnet-green) ![CI/CD](https://img.shields.io/badge/CI%2FCD-passing-brightgreen)
 
 # Mobile Responsive
 
 
-<img width="330" height="558" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/e364a4a1-fd46-479d-966f-a593f97f8c17" />
+<img width="330" height="580" alt="image" src="https://github.com/user-attachments/assets/deb3f78d-7b7e-4950-acbe-ef5d9eab16f2" />
+
 
 
 
@@ -22,8 +25,8 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 
 | Resource | Link | 
 |----|-----|
-| Live Demo | [Live Link](https://relixa.vercel.app/) | 
-| Smart Contract | [View on StellarExpert](https://stellar.expert/explorer/testnet/contract/CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA) |
+| Live Demo | [Live Link](https://relixa.vercel.app/) | H
+| Smart Contract | [View on StellarExpert](https://stellar.expert/explorer/testnet/contract/CCIMHOZAMXQXJRJJXAMBX2GXSGP6BCU7YRLYTJ5IJ446XEJYEW56UBAH) |
 | Users Data & Review | [Users Excel Sheet](https://1drv.ms/x/c/2baf627b5dfe0bd7/IQC7V_270XSkS4srEqExxFj5AQsUXFJOYaocBdqHJrAdO7c?e=Q1RKMw) |
  
 ---
@@ -36,7 +39,7 @@ A transparent, blockchain-powered platform for disaster relief campaigns built o
 | CI/CD Pipeline | ✅Done | [Check Below](#cicd-pipeline) |
 | Smart Contract Deployed | ✅Done | Stellar Testnet Contracts Configured |
 | Mobile Responsive | ✅Done | Tested & Responsive |
-| Registered Users | ✅Done | [Verified Users Excel Sheet Data](https://1drv.ms/x/c/2baf627b5dfe0bd7/IQC7V_270XSkS4srEqExxFj5AQsUXFJOYaocBdqHJrAdO7c?e=Q1RKMw) |
+| Registered Users | ✅Done | [35+ Verified Users Excel Sheet Data](https://1drv.ms/x/c/2baf627b5dfe0bd7/IQC7V_270XSkS4srEqExxFj5AQsUXFJOYaocBdqHJrAdO7c?e=Q1RKMw) |
 
 ---
 
@@ -114,7 +117,8 @@ graph TD
 ---
 
 ## Monitoring Dashboard
-<img width="1919" height="877" alt="Screenshot 2026-04-14 151217" src="https://github.com/user-attachments/assets/c5f7c177-7907-4ee9-8c56-f2a59c05e5d1" />
+<img width="1899" height="861" alt="Screenshot 2026-04-29 124840" src="https://github.com/user-attachments/assets/005b3048-a884-4da8-888d-2864d3c1a947" />
+
 
 
 ----
@@ -156,11 +160,11 @@ Summary:
 
 | Contract Function | Testnet Contract ID |
 |-------------------|----------------------|
-| ReliefToken Contract | CCVU3EEHQF3BPADY37SU3AG5K3LGS2O4HXVJZEJY3T6WADTUAN6NQTYY |
-| CampaignFactory Contract | CAEI5K6BGQC4IR2M2S4HZDLA2ZKAU3RSDZ3WH6D2OZAXBS7PSWJNL4SK |
-| TokenSale Contract |CAABYCCXEEKXA6Q32EFNQWEPOL3G66BRCKISJDY6V7LXS4NABBAGCG7N |
-| USDC Token Contract (Stellar Testnet) | CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA|
-| Sample Transaction Hash | [View on stellar Expert](https://stellar.expert/explorer/testnet/contract/CAABYCCXEEKXA6Q32EFNQWEPOL3G66BRCKISJDY6V7LXS4NABBAGCG7N) |
+| ReliefToken Contract |	CDQJFA7FWAFENCOBGYI5YTEIIIV2JWYWGPKMFTSKZCS3GVSVPSVDULXU|
+| CampaignFactory Contract | 	CDH35PFTCU2WXPQ3LW4NFDJADNCEKK7RNH2UUNH5JRKFZ7O7U3UCFY6C|
+| TokenSale Contract |CAZZHGGQCK4XYSWQOY7NPSU247XMWA4PNJWUA6NU47TPQFK4E6EGVYZZ |
+| USDC Token Contract (Stellar Testnet) | 	CCIMHOZAMXQXJRJJXAMBX2GXSGP6BCU7YRLYTJ5IJ446XEJYEW56UBAH|
+| Sample Transaction Hash | [View on stellar Expert](https://stellar.expert/explorer/testnet/contract/CAZZHGGQCK4XYSWQOY7NPSU247XMWA4PNJWUA6NU47TPQFK4E6EGVYZZ) |
 
 
 
@@ -176,19 +180,27 @@ Summary:
 | [FEEDBACK.md](docs/FEEDBACK.md) | User feedback & community updates |
 
 ---
+## User Details
+| User Name | User Email |  User Wallet Address |
+|----------|-------------|---------------------|
+| Jiya Dutta |dutta09@gmail.com |   GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O   |
+|Amit biswas | amit55@gmai.com |  GBC6CGPG3JVSHEGO3TVMSHJ6UAVL4OA4H4TZSH4P7TRTF2V3RRFVOVHJ   |
+| Shuvo Sen | shuvo542@gmail.com |GA3QEKYH3AJUF37L5CW66QNAIGCMRUBRHPLTM74HDHA4BHCE2TYI5ZNC    |
+|Jiten Mandal|jitu321@gmail.com |GAID6F2HZ57QELA3SEJOVRA4VJU5BTJJKJZU6LQ4EJJLZAHF7P6S5XZO    |
+|Anik Das  | das22@gmail.com |  GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J     |
+
+-----
+
 
 ## User Feed Implementation
 
 | User Name | User Email | User Wallet Address | Commit ID | User's Feedback | Implemented |
 |----------|-----------|---------------------|-----------|------------------|-------------|
-| Rahul Sharma | rahul@example.com | GDAXP4Z75N7G4NVK2L3S4P5V7VYF7W5HNYXJ7AABT4J5DZXE7M | [2c36bcb](https://github.com/saxux2/Relixa/commit/2c36bcb) | "The initial landing page render feels static and animation sequences are dropping frames on older devices." | Engineered a low-latency GSAP animation timeline with hardware-accelerated scaling vectors for the hero interface |
-| Rupa Das | das@example.com | GDVGCNPYED7FFJ65MAGEP2V7B4HVLJ5HXQQNQE7KSXTDDBMX3LSP2EEB | [69c94b7](https://github.com/saxux2/Relixa/commit/69c94b7) | "I can't instantly tell if my wallet is actively connected to the platform." | Architected elaborate wallet diagnostics and active connection telemetry |
-| Puja Barai | puja@gmail.com | GBEUK7NAW6JIXCAOH7OUJMUKVCE44E4U2EC6LGX2JOEK6LOGZPWX23TO | [e8e066e](https://github.com/saxux2/Relixa/commit/e8e066e) | "The platform features grid cards feel rigid and unresponsive." | Engineered advanced SVG interactive feature grid and background layout meshes |
-| Priya Pal | priya@gmail.com | GCVCHO43YMPEHBDWOVKP5Y2XZWEUHCZNPIGJRZAFFFGWMNGO5UVUMCO3 | [62a984f](https://github.com/saxux2/Relixa/commit/62a984f) | "The platform lacks a unified diagnostic registry to verify Stellar network node latency and fallback routing." | Sanitized network routing and fully populated global network registry map |
-| Minakshi Lora | lora@gmail.com | GB7DTSTGE3O2X2VMANRX3PDNOB2DNJXHRVTX57QN45AJCQCVVJHUEA2X | [40ce9ef](https://github.com/saxux2/Relixa/commit/40ce9ef) | "As an organizer, I have to hard reload the tab to see updated campaign limits." | Embedded high performance real-time live campaign metrics socket sync engine |
-| Roni Dev | dev@investx.io | GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J | [232b21a](https://github.com/saxux2/Relixa/commit/232b21a) | "If my merchant application gets rejected, it forces an unclear browser alert." | Designed extensive explicit error boundary visualizers and rejection form tooltips |
-| Akash Biswas | akash@investx.io | GADWGNTRTYMFBBMVPFT6K46NTV3QCRNZZVHEX4IXWUFWA7GMUSAB7IM6 | [0f17c08](https://github.com/saxux2/Relixa/commit/0f17c08) | "The notification system lacks historical payload persistence, hiding critical transaction telemetry." | Refactored enterprise-grade notification center with historical state tracking hashes |
-| Tanvi Mishra | tanvi@gmail.com | GBB5NZHPP5I3ENL3MIT4WEARDNPSBI7GY4CUUVWWMZVC4ZWOXU22TZEE | [58c4156](https://github.com/saxux2/Relixa/commit/58c4156) | "There is no capability to extract merchant profile mapping externally." | Executed exhaustive external merchant CSV/PDF data exporter and sanitation pipeline |
+| Jiya Dutta | dutta09@gmail.com | GABOCXTPR42Y6DM5RVMFBNUYOBNB6RGQ3DX63AFOH6UJFA7U35KOCF5O | [1d24afb](https://github.com/saxux2/Relixa/commit/1d24afb) | "The landing page looked too plain for a web3 app. Please improve the navbar and overall visual theme." | Added a reusable Web3Navbar, introduced global web3 theme styles in frontend/src/index.css, and redesigned frontend/src/pages/LandingPage.jsx. |
+| Amit biswas | amit55@gmai.com |  GBC6CGPG3JVSHEGO3TVMSHJ6UAVL4OA4H4TZSH4P7TRTF2V3RRFVOVHJ | [ef2b2b5](https://github.com/saxux2/Relixa/commit/ef2b2b5) | "It wasn’t obvious what I should do first on the homepage. Please make the navigation and main buttons clearer" |Improved landing page UX with a more dynamic navbar and clearer CTA flow in frontend/src/pages/LandingPage.jsx. |
+| Shuvo Sen |shuvo542@gmail.com | GA3QEKYH3AJUF37L5CW66QNAIGCMRUBRHPLTM74HDHA4BHCE2TYI5ZNC | [75ffc34](https://github.com/saxux2/Relixa/commit/75ffc34) |	“The feature cards felt static. It would be better if they had a more interactive hover effect.” |Added responsive hover-scale interaction to the feature cards in frontend/src/components/MagicBento.css.|
+| Jiten Mandal | jitu321@gmail.com | GAID6F2HZ57QELA3SEJOVRA4VJU5BTJJKJZU6LQ4EJJLZAHF7P6S5XZO | [b0d21b4](https://github.com/saxux2/Relixa/commit/b0d21b4) | “I wanted a clearer visual sign that my wallet was connected.” | Added/updated the wallet connection status indicator on the landing page wallet pill in frontend/src/pages/LandingPage.jsx. |
+|Anik Das  |das22@gmail.com | GCVDMNBJNKZFW5RVCARGIUAAAL364ODLPYDYM4UKGUJTS6NZG55H3M2J| [3e22721](https://github.com/saxux2/Relixa/commit/3e22721) |“The pending/rejected approval state was confusing. Please make it clearer what is happening.” | Improved the pending approval screen and rejection handling in frontend/src/pages/PendingApproval.jsx. |
 
 ---
 
