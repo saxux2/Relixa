@@ -164,27 +164,74 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)]">
-      <div className="web3-grid pointer-events-none absolute inset-0 z-0 opacity-40" />
-      <div className="pointer-events-none absolute left-[-12rem] top-[-10rem] z-0 h-[28rem] w-[28rem] rounded-full bg-emerald-400/18 blur-3xl animate-web3-float" />
-      <div className="pointer-events-none absolute right-[-8rem] top-[6rem] z-0 h-[24rem] w-[24rem] rounded-full bg-cyan-400/14 blur-3xl animate-web3-float" />
-      <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 z-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-emerald-500/12 blur-3xl animate-web3-float" />
+    <div className="relative min-h-screen w-full overflow-hidden bg-black text-[var(--text-primary)]">
+      {/* ── Main dome glow — fills top half of viewport ── */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2"
+        style={{
+          width: '220%',
+          height: '160vh',
+          background: 'radial-gradient(ellipse 65% 55% at 50% 10%, rgba(22,163,74,0.52) 0%, rgba(16,185,129,0.30) 28%, rgba(5,150,105,0.14) 50%, transparent 75%)',
+        }}
+      />
+      {/* Wide ambient halo — extends the glow edges */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2"
+        style={{
+          width: '260%',
+          height: '140vh',
+          background: 'radial-gradient(ellipse 80% 52% at 50% 8%, rgba(16,185,129,0.22) 0%, rgba(5,150,105,0.10) 40%, transparent 68%)',
+        }}
+      />
+      {/* Bright inner core — hot center near top */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2"
+        style={{
+          width: '160%',
+          height: '100vh',
+          background: 'radial-gradient(ellipse 42% 48% at 50% 12%, rgba(74,222,128,0.32) 0%, rgba(34,197,94,0.14) 45%, transparent 78%)',
+        }}
+      />
+      {/* Side spill — widens the glow circle at edges */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2"
+        style={{
+          width: '200%',
+          height: '120vh',
+          background: 'radial-gradient(ellipse 75% 50% at 50% 15%, rgba(16,185,129,0.12) 0%, transparent 60%)',
+        }}
+      />
 
+      {/* ── Grid overlay — matches the glow coverage ── */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(34,197,94,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.09) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          maskImage:
+            'radial-gradient(ellipse 95% 55% at 50% 10%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.2) 58%, transparent 75%)',
+          WebkitMaskImage:
+            'radial-gradient(ellipse 95% 55% at 50% 10%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.2) 58%, transparent 75%)',
+        }}
+      />
+
+      {/* ── Scattered dot particles ── */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        {[...Array(180)].map((_, i) => {
-          const size = 2 + Math.random() * 3;
-
+        {[...Array(120)].map((_, i) => {
+          const size = 1.5 + Math.random() * 2.5;
           return (
             <span
               key={i}
-              className="absolute rounded-full bg-emerald-300/30"
+              className="absolute rounded-full"
               style={{
                 width: size,
                 height: size,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 2}s`,
+                backgroundColor: `rgba(74, 222, 128, ${0.10 + Math.random() * 0.30})`,
+                animation: `float ${4 + Math.random() * 5}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 3}s`,
               }}
             />
           );
@@ -227,14 +274,14 @@ export default function LandingPage() {
               <button
                 onClick={handleGoToDashboard}
                 disabled={checkingRole}
-                className="web3-button-primary w-full rounded-2xl px-10 py-5 text-xl font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto disabled:opacity-50 disabled:hover:scale-100"
+                className="web3-button-primary w-full rounded-xl px-7 py-3 text-base font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto disabled:opacity-50 disabled:hover:scale-100"
               >
                 {checkingRole ? 'Checking Role...' : 'Go to Dashboard'}
               </button>
             ) : (
               <button
                 onClick={handleConnectWallet}
-                className="web3-button-primary w-full rounded-2xl px-10 py-5 text-xl font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto"
+                className="web3-button-primary w-full rounded-xl px-7 py-3 text-base font-bold transition-all duration-300 hover:scale-[1.02] sm:w-auto"
               >
                 Connect Wallet
               </button>
@@ -242,7 +289,7 @@ export default function LandingPage() {
 
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="w-full rounded-2xl border border-white/12 bg-white/[0.03] px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/[0.08] sm:w-auto"
+              className="w-full rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 text-base font-semibold text-white transition hover:bg-white/[0.08] sm:w-auto"
             >
               Learn More
             </button>
@@ -332,10 +379,8 @@ export default function LandingPage() {
       <footer className="relative px-6 py-12">
         <div className="web3-panel mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 rounded-[2rem] px-6 py-8 md:flex-row">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500">
-              <svg className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm">
+              <img src="/relixa-logo.png" alt="Relixa logo" className="h-6 w-6 object-contain" />
             </div>
             <span className="font-semibold text-white">Relixa</span>
           </div>
